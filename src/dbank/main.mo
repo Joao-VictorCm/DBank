@@ -11,5 +11,14 @@ actor DBank {
   let id = 16;
 
   // Debug.print("hello") //é o console.log()
-  Debug.print(debug_show(currentValue, id))  //pata variaveis 
+  // Debug.print(debug_show(currentValue, id))  //pata variaveis 
+
+  func topUp(){
+    currentValue += 1 ;
+
+    Debug.print(debug_show (currentValue));
+  };
+
+  topUp();
+ 
 }
