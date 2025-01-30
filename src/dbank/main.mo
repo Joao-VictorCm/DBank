@@ -6,7 +6,7 @@ import Debug "mo:base/Debug";
 import Nat "mo:base/Nat";
 
 actor DBank {
-  var currentValue = 300;
+  var currentValue: Nat = 300;
   currentValue := 100;  //o := altera o valor de 300 para 100
   
   let id = 16;
@@ -24,9 +24,17 @@ actor DBank {
    //chamando funções publicas no **terminar** dfx canister call dbank topUp 
 
    public func downUp(amount: Nat){
-    currentValue -= amount;
+    let tempvalue: Int = currentValue - amount;
+    
+    if(tempvalue >= 0){
+      currentValue -= amount;
+      Debug.print(debug_show(currentValue))
 
-    Debug.print(debug_show(currentValue))
+    }else{
+      Debug.print("Saldo insuficiente");
+    }
+
+  
    }
  
 }
