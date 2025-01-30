@@ -21,7 +21,12 @@ actor DBank {
   };
 
    //topUp();
-
    //chamando funções publicas no **terminar** dfx canister call dbank topUp 
+
+   public func downUp(amount: Nat){
+    currentValue -= amount;
+
+    Debug.print(debug_show(currentValue))
+   }
  
 }
