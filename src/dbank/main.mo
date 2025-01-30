@@ -11,14 +11,16 @@ actor DBank {
   let id = 16;
 
   // Debug.print("hello") //é o console.log()
-  // Debug.print(debug_show(currentValue, id))  //pata variaveis 
+ // Debug.print(debug_show(currentValue, id))  //para variaveis 
 
-  func topUp(){
+  public func topUp(){
     currentValue += 1 ;
 
-    Debug.print(debug_show (currentValue));
+     Debug.print(debug_show (currentValue));
   };
 
-  topUp();
+   //topUp();
+
+   //chamando funções publicas no **terminar** dfx canister call dbank topUp 
  
 }
