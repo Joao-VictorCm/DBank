@@ -3,6 +3,7 @@
 // https://internetcomputer.org/docs/current/motoko/main/reference/style#style
 
 import Debug "mo:base/Debug";
+import Nat "mo:base/Nat";
 
 actor DBank {
   var currentValue = 300;
@@ -13,8 +14,8 @@ actor DBank {
   // Debug.print("hello") //é o console.log()
  // Debug.print(debug_show(currentValue, id))  //para variaveis 
 
-  public func topUp(){
-    currentValue += 1 ;
+  public func topUp(amount: Nat){
+    currentValue += amount;
 
      Debug.print(debug_show (currentValue));
   };
