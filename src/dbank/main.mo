@@ -33,8 +33,11 @@ actor DBank {
     }else{
       Debug.print("Saldo insuficiente");
     }
+   };
 
-  
-   }
+
+   public query func checkbalance(): async Nat {
+    return currentValue
+   };
  
 }
