@@ -6,12 +6,12 @@ import Debug "mo:base/Debug";
 import Nat "mo:base/Nat";
 
 actor DBank {
-  var currentValue: Nat = 300;
-  currentValue := 100;  //o := altera o valor de 300 para 100
+  stable var currentValue: Nat = 300;
+  // currentValue := 100;  //o := altera o valor de 300 para 100
   
   let id = 16;
 
-  // Debug.print("hello") //é o console.log()
+  Debug.print("hello"); //é o console.log()
  // Debug.print(debug_show(currentValue, id))  //para variaveis 
 
   public func topUp(amount: Nat){
@@ -35,7 +35,7 @@ actor DBank {
     }
    };
 
-
+//https://internetcomputer.org/docs/current/developer-docs/smart-contracts/overview/introduction
    public query func checkbalance(): async Nat {
     return currentValue
    };
