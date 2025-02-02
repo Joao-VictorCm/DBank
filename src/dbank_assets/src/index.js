@@ -1,8 +1,7 @@
 import { dbank } from "../../declarations/dbank"
 
 window.addEventListener("load", async function() {
-  const currentAmount = await dbank.checkbalance()
-  document.getElementById("value").innerText =  Math.round(currentAmount * 100) / 100; //deixando o retorno com apenas duas casas dps da virgula
+  update()
 })
 
 document.querySelector("form").addEventListener("submit", async function(event){
@@ -22,10 +21,23 @@ document.querySelector("form").addEventListener("submit", async function(event){
   if(document.getElementById("withdrawal-amount").value.length != 0){
     await dbank.downUp(outputAmount)
   }
+  
+  await dbank.compound() //função que calcula o juros compostos
+
+  update()
 
   const currentAmount = await dbank.checkbalance()
   document.getElementById("value").innerText =  Math.round(currentAmount * 100) / 100
 
+  document.getElementById("input-amount").value = ""
+  document.getElementById("withdrawal-amount").value = ""
+  
+
   button.removeAttribute("disabled")
 
 })
+
+async function update (){
+  const currentAmount = await dbank.checkbalance();
+  document.getElementById("value").innerText = Math.round(currentAmount * 100) / 100 //deixando o retorno com apenas duas casas dps da virgula
+}

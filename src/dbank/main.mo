@@ -9,7 +9,7 @@ import Float "mo:base/Float";
 
 actor DBank {
   stable var currentValue: Float = 300; //stable faz a variavel ficar com o valor meesmo apos recarregar a pagina 
-  // currentValue := 100;  //o := altera o valor de 300 para 100
+  currentValue := 300;  //o := altera o valor de 300 para 100
   
   let id = 16;
 
@@ -43,7 +43,7 @@ actor DBank {
    };
 
    stable var starTime = Time.now();
-  //  starTime := Time.now();
+   starTime := Time.now();
    Debug.print(debug_show(starTime));
 
 public func compound(){ //Essa é uma função que calcula juros composto a cada segundo que passa 
