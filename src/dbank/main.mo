@@ -42,14 +42,15 @@ actor DBank {
     return currentValue
    };
 
-   var time = Time.now();
-   Debug.print(debug_show(time));
+   stable var starTime = Time.now();
+  //  starTime := Time.now();
+   Debug.print(debug_show(starTime));
 
-public func compound(){
+public func compound(){ //Essa é uma função que calcula juros composto a cada segundo que passa 
   let currentTime = Time.now();
-  let timeElapsedNS = currentTime - time;
-  let timeElapsedS =timeElapsedNS / 1000000000;//transformando nanosegundos em segundos
-  currentValue := currentValue * (1.01 ** Float.fromInt(timeElapsedS));
-  time := currentTime
+  let timeElapsedNS = currentTime - starTime;
+  let timeElapsedS = timeElapsedNS / 1000000000;//transformando nanosegundos em segundos
+  currentValue := currentValue * (1.01 ** Float.fromInt(timeElapsedS)); // o ** é o numero do expoente e isso é uma formula de juros composto, utilizado o Float para poder user cadas decimais ex:  32.25
+  starTime := currentTime
 };
 }
