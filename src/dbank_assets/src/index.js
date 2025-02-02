@@ -19,6 +19,10 @@ document.querySelector("form").addEventListener("submit", async function(event){
     await dbank.topUp(inputAmount)
   }
 
+  if(document.getElementById("withdrawal-amount").value.length != 0){
+    await dbank.downUp(outputAmount)
+  }
+
   const currentAmount = await dbank.checkbalance()
   document.getElementById("value").innerText =  Math.round(currentAmount * 100) / 100
 
